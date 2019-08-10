@@ -1,0 +1,24 @@
+{
+  "name": "ikigai",
+  "version": "0.0.1",
+  "description": "A perfect WP elite theme",
+  "main": "index.js",
+  "scripts": {
+    "tw": "npx tailwind build \"./styles/tailwind.css\" -o \"./style.css\"",
+    "sync": "browser-sync start --proxy \"localhost:8000\" --files \"*.php, *.css, ** /*.php\"",
+    "start": "NODE_ENV=dev&&watch 'npm run tw' \"./styles\"&npm run sync",
+    "build": "NODE_ENV=prod"
+  },
+  "author": "Alessandro Arcidiaco",
+  "license": "GPL",
+  "dependencies": {
+    "autoprefixer": "^9.6.1",
+    "postcss-cli": "^6.1.3",
+    "tailwindcss": "^1.1.1"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "browser-sync": "^2.26.7",
+    "watch": "^1.0.2"
+  }
+}
