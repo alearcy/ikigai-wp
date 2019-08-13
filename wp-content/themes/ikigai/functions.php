@@ -79,6 +79,34 @@ if ( ! function_exists( 'ikigai_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+        /**
+         * new Gutenberg block alignment
+         */
+        add_theme_support( 'align-wide' );
+
+        /**
+         * Color palette in block editor
+         */
+        add_theme_support( 'editor-color-palette', array(
+            array(
+                'name' => __('Primary color', 'ikigai'),
+                'slug' => 'primary',
+                'color' => '#ea732f'
+            ),
+            array(
+                'name' => __('Dark color', 'ikigai'),
+                'slug' => 'dark',
+                'color' => '#404040'
+            )
+        ) );
+
+        /**
+         * Responsive embed block like YouTube videos etc...
+         */
+        add_theme_support('responsive-embed');
+        add_theme_support('editor-styles');
+        add_editor_style('editor.css');
 	}
 endif;
 add_action( 'after_setup_theme', 'ikigai_setup' );

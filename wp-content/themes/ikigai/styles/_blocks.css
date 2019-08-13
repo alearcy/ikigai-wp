@@ -1,0 +1,16 @@
+/*Block editor palette colors*/
+.has-primary-background-color {
+    @apply bg-primary;
+}
+
+.has-primary-color {
+    @apply text-primary;
+}
+
+.has-dark-background-color {
+    @apply bg-dark;
+}
+
+.has-dark-color {
+    @apply text-dark;
+}

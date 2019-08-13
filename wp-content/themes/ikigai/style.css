@@ -621,160 +621,32 @@ video {
   height: auto;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-textarea,
-select {
-  border-radius: 0.25rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  border-color: #cbd5e0;
-  border-style: solid;
-  border-width: 1px;
-  width: 100%;
-  margin-bottom: 0.25rem;
-  margin-top: 0.25rem;
-}
-
-input[type="checkbox"] {
-  margin-bottom: 1rem;
-}
-
-input:focus {
-  outline: 0;
-}
-
-label {
-  display: block;
-  margin-top: 0.25rem;
-}
-
-.field-error-message {
-  color: #FF595E;
-  font-size: 0.75rem;
-}
-
-.card {
-  border-radius: 0.25rem;
-  padding: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background-color: #fff;
-}
-
-button[type="submit"] {
-  margin-top: 1rem;
-}
-
-button[disabled] {
-  cursor: not-allowed;
-  background-color: #cbd5e0;
-  color: #fff;
-}
-
-.button,
-input[type="button"],
-input[type="submit"] {
-  border-radius: 0.25rem;
-  background-color: #162E47;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #fff;
-}
-
-/*TODO*/
-
-.button:hover {
-  background-color: #162E47;
-}
-
-.button-full {
+.container {
   width: 100%;
 }
 
-.button-error {
-  background-color: #FF595E;
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
 }
 
-/*TODO*/
-
-.button-error:hover {
-  background-color: #FF595E;
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
 }
 
-.message {
-  border-width: 1px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-radius: 0.25rem;
-  position: relative;
-  margin-bottom: 1rem;
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
 }
 
-/*TODO*/
-
-.message-info {
-  background-color: #ebf8ff;
-  border-color: #63b3ed;
-  color: #2b6cb0;
-}
-
-/*TODO*/
-
-.message-success {
-  background-color: #f0fff4;
-  border-color: #68d391;
-  color: #2f855a;
-}
-
-/*TODO*/
-
-.message-warning {
-  background-color: #fffff0;
-  border-color: #f6e05e;
-  color: #b7791f;
-}
-
-.message-error {
-  background-color: #fff5f5;
-  border-color: #FF595E;
-  color: #c53030;
-}
-
-/*a {*/
-
-/*    @apply text-primary;*/
-
-/*}*/
-
-/*!*TODO*!*/
-
-/*a:hover {*/
-
-/*    @apply text-primary;*/
-
-/*}*/
-
-nav a {
-  color: #E3DEEB;
-}
-
-/*TODO*/
-
-nav a:hover {
-  color: #E3DEEB;
-}
-
-nav .menu a {
-  margin-left: 0.5rem;
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
 }
 
 .gallery-grid {
@@ -789,43 +661,43 @@ nav .menu a {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas:
-    "header header header header"
-    "main main main main"
-    "footer footer footer footer";
+            "header header header header"
+            "main main main main"
+            "footer footer footer footer";
 }
 
 .page-layout-2 {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas:
-    "header header header header"
-    "main main main aside"
-    "footer footer footer footer";
+            "header header header header"
+            "main main main aside"
+            "footer footer footer footer";
 }
 
 .page-layout-3 {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas:
-    "header header header header"
-    "aside main main main"
-    "footer footer footer footer";
+            "header header header header"
+            "aside main main main"
+            "footer footer footer footer";
 }
 
 .page-layout-4 {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas:
-    "aside main main main"
-    "aside footer footer footer";
+            "aside main main main"
+            "aside footer footer footer";
 }
 
 .page-layout-5 {
   display: grid;
   grid-gap: 1rem;
   grid-template-areas:
-    "main main main aside"
-    "footer footer footer aside";
+            "main main main aside"
+            "footer footer footer aside";
 }
 
 .page-layout-1,
@@ -904,44 +776,166 @@ footer {
   grid-area: footer;
 }
 
-h1 {
-  font-size: 2.25rem;
+/*Block editor palette colors*/
+
+.has-primary-background-color {
+  background-color: #162E47;
 }
 
-h2 {
-  font-size: 1.875rem;
+.has-primary-color {
+  color: #162E47;
 }
 
-h3 {
-  font-size: 1.5rem;
+.has-dark-background-color {
+  background-color: #030405;
 }
 
-.container {
+.has-dark-color {
+  color: #030405;
+}
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+
+.main-navigation {
+  clear: both;
+  display: block;
+  float: left;
   width: 100%;
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
+.main-navigation ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.main-navigation ul ul {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  float: left;
+  position: absolute;
+  top: 100%;
+  left: -999em;
+  z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+  left: -999em;
+  top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+  left: 100%;
+}
+
+.main-navigation ul ul a {
+  width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+  left: auto;
+}
+
+.main-navigation li {
+  float: left;
+  position: relative;
+}
+
+.main-navigation a {
+  display: block;
+  text-decoration: none;
+}
+
+/* Small menu. */
+
+.menu-toggle,
+.main-navigation.toggled ul {
+  display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-navigation ul {
+    display: block;
   }
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+  margin: 0 0 1.5em;
+  overflow: hidden;
 }
 
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+  float: left;
+  width: 50%;
 }
 
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  -webkit-clip-path: none;
+          clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+
+#content[tabindex="-1"]:focus {
+  outline: 0;
 }
 
 .sr-only {
@@ -12208,150 +12202,6 @@ h3 {
 
 .z-auto {
   z-index: auto;
-}
-
-/*--------------------------------------------------------------
-## Menus
---------------------------------------------------------------*/
-
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%;
-}
-
-.main-navigation ul {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-.main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 100%;
-  left: -999em;
-  z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-  left: -999em;
-  top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-  left: 100%;
-}
-
-.main-navigation ul ul a {
-  width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
-}
-
-.main-navigation li {
-  float: left;
-  position: relative;
-}
-
-.main-navigation a {
-  display: block;
-  text-decoration: none;
-}
-
-/* Small menu. */
-
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .main-navigation ul {
-    display: block;
-  }
-}
-
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-  margin: 0 0 1.5em;
-  overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-  float: left;
-  width: 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-  float: right;
-  text-align: right;
-  width: 50%;
-}
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-
-/* Text meant only for screen readers. */
-
-.screen-reader-text {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute !important;
-  width: 1px;
-  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
-}
-
-.screen-reader-text:focus {
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  clip: auto !important;
-  -webkit-clip-path: none;
-          clip-path: none;
-  color: #21759b;
-  display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
-  /* Above WP toolbar. */
-}
-
-/* Do not show the outline on the skip link target. */
-
-#content[tabindex="-1"]:focus {
-  outline: 0;
 }
 
 @media (min-width: 640px) {

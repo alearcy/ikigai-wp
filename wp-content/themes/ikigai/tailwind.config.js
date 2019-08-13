@@ -13,9 +13,5 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: [
-    ...(process.env.NODE_ENV === "prod"
-      ? [require("@fullhuman/postcss-purgecss")]
-      : [])
-  ]
+  plugins: []
 };
