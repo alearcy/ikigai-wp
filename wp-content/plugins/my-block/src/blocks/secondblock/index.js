@@ -1,13 +1,14 @@
 import './styles.editor.scss';
 import {registerBlockType} from '@wordpress/blocks';
 import {__} from '@wordpress/i18n';
-import {RichText, BlockControls, AlignmentToolbar} from '@wordpress/editor';
-import {Toolbar, DropdownMenu} from '@wordpress/components';
+import { RichText, getColorClassName } from '@wordpress/editor';
+import Edit from "./edit";
+import classnames from 'classnames';
 
 registerBlockType("my-block/secondblock", {
     title: __("Second block", "my-block"),
     description: __("My second block", "my-block"),
-    category: "layout",
+    category: "my-block-categories",
     icon: {
         background: "#ea732f",
         foreground: "#fff",
@@ -18,6 +19,21 @@ registerBlockType("my-block/secondblock", {
             </svg>
     },
     keywords: [__('photo', 'my-block'), __('image', 'my-block')],
+    styles: [
+        {
+            name: 'rounded',
+            label: __('Rounded', 'my-block'),
+            isDefault: true
+        },
+        {
+            name: 'outline',
+            label: __('Outline', 'my-block'),
+        },
+        {
+            name: 'squared',
+            label: __('Squared', 'my-block'),
+        },
+    ],
     attributes: {
         content: {
             type: 'string',
@@ -26,71 +42,36 @@ registerBlockType("my-block/secondblock", {
         },
         alignment: {
             type: 'string',
-
-        }
+        },
+        backgroundColor: {
+            type: 'string'
+        },
+        textColor: {
+            type: 'string'
+        },
+        customBackgroundColor: {
+            type: 'string'
+        },
+        customTextColor: {
+            type: 'string'
+        },
     },
-    edit: ({className, attributes, setAttributes}) => {
-        const {content, alignment} = attributes;
-        const onChangeContent = content => {
-            setAttributes({content})
-        };
-        const onChangeAlignment = alignment => {
-            setAttributes({alignment})
-        };
-        return (
-            <>
-                <BlockControls
-                    controls={[
-                        {
-                            icon: 'wordpress',
-                            title: __('test', 'my-block'),
-                            onClick: () => onChangeAlignment('right'),
-                            isActive: false
-                        },
-                        {
-                            icon: 'wordpress',
-                            title: __('test', 'my-block'),
-                            onClick: () => alert(true),
-                            isActive: false
-                        }
-                    ]}>
-                    <AlignmentToolbar
-                        value={alignment}
-                        onChange={onChangeAlignment}/>
-                    <Toolbar>
-                        <DropdownMenu
-                            icon="editor-table"
-                            label={__('test', 'my-block')}
-                            controls={[
-                                {
-                                    icon: 'wordpress',
-                                    title: __('test', 'my-block'),
-                                    onClick: () => alert(true),
-                                    isActive: false
-                                },
-                                {
-                                    icon: 'wordpress',
-                                    title: __('test', 'my-block'),
-                                    onClick: () => alert(true),
-                                    isActive: false
-                                }
-                            ]}
-                        />
-                    </Toolbar>
-                </BlockControls>
-                <RichText
-                    style={{textAlign: alignment}}
-                    tagName="p"
-                    className={className}
-                    onChange={onChangeContent}
-                    value={content}/>
-            </>
-        )
-    },
+    edit: Edit,
     save: ({attributes}) => {
-        const {content, alignment} = attributes;
+        const {content, alignment, customBackgroundColor, customTextColor, backgroundColor, textColor} = attributes;
+        const backgroundClass = getColorClassName('background-color', backgroundColor);
+        const textClass = getColorClassName('color', textColor);
+        const classes = classnames({
+            [backgroundClass]: backgroundClass,
+            [textClass]: textClass,
+        });
         return <RichText.Content
-            style={{textAlign: alignment}}
+            className={classes}
+            style={{
+                textAlign: alignment,
+                backgroundColor: backgroundClass ? undefined : customBackgroundColor,
+                color: textClass ? undefined : customTextColor
+            }}
             tagName="p"
             value={content}/>
     }

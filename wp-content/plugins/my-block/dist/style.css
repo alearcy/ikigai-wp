@@ -1,8 +1,11 @@
 .wp-block-my-block-secondblock {
-  background-color: #524d5b;
-  color: #fff;
   border-radius: 5px;
   padding: 20px; }
+  .wp-block-my-block-secondblock.is-style-squared {
+    border-radius: 0; }
+  .wp-block-my-block-secondblock.is-style-outline {
+    border-radius: 0;
+    border: 2px solid currentColor; }
 
 
 /*# sourceMappingURL=style.css.map*/

@@ -11,6 +11,21 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
+function my_block_categories($categories, $post) {
+    return array_merge(
+        $categories,
+        array(
+          array(
+              'slug' => 'my-block-categories',
+              'title' => __('My Block Categories', 'my-block'),
+              'icon' => 'wordpress'
+          )
+        )
+    );
+}
+
+add_filter('block_categories', 'my_block_categories', 10, 2);
+
 function custom_register_block_type($block, $options=array()) {
     register_block_type(
         'my-block/' . $block,

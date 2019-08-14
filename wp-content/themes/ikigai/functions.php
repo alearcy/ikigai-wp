@@ -92,12 +92,12 @@ if ( ! function_exists( 'ikigai_setup' ) ) :
             array(
                 'name' => __('Primary color', 'ikigai'),
                 'slug' => 'primary',
-                'color' => '#ea732f'
+                'color' => '#162E47'
             ),
             array(
-                'name' => __('Dark color', 'ikigai'),
-                'slug' => 'dark',
-                'color' => '#404040'
+                'name' => __('Light color', 'ikigai'),
+                'slug' => 'light',
+                'color' => '#E3DEEB'
             )
         ) );
 

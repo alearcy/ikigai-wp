@@ -1,4 +1,4 @@
-const {src, dest, watch, parallel} = require("gulp");
+const {src, dest, watch, parallel, series} = require("gulp");
 const postcss = require("gulp-postcss");
 const purgecss = require("gulp-purgecss");
 const tailwindcss = require("tailwindcss");
@@ -62,5 +62,5 @@ function watcher() {
     watch('styles/*.css', css)
 }
 
-exports.default = parallel(watcher, serve);
+exports.default = series(css, parallel(watcher, serve));
 exports.build = build;

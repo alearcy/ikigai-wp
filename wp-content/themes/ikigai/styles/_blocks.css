@@ -7,10 +7,10 @@
     @apply text-primary;
 }
 
-.has-dark-background-color {
-    @apply bg-dark;
+.has-light-background-color {
+    @apply bg-light;
 }
 
-.has-dark-color {
-    @apply text-dark;
+.has-light-color {
+    @apply text-light;
 }

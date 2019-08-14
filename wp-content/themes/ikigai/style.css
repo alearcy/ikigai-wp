@@ -786,12 +786,12 @@ footer {
   color: #162E47;
 }
 
-.has-dark-background-color {
-  background-color: #030405;
+.has-light-background-color {
+  background-color: #E3DEEB;
 }
 
-.has-dark-color {
-  color: #030405;
+.has-light-color {
+  color: #E3DEEB;
 }
 
 /*--------------------------------------------------------------
