@@ -133,7 +133,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
 /* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/arcy/collettivo/wp-content/plugins/my-block/src/blocks/secondblock/index.js";
+
 
 
 
@@ -152,7 +155,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("my-
       viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
+        lineNumber: 15
       },
       __self: undefined
     }, wp.element.createElement("path", {
@@ -160,37 +163,137 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("my-
       d: "M0 0h24v24H0z",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 16
       },
       __self: undefined
     }), wp.element.createElement("path", {
       d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 17
       },
       __self: undefined
     }))
   },
   keywords: [Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('photo', 'my-block'), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('image', 'my-block')],
-  edit: function edit(_ref) {
-    var className = _ref.className;
-    return wp.element.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    }); // return <p className={className}>Second pippo Editor</p>;
+  attributes: {
+    content: {
+      type: 'string',
+      selector: 'p',
+      source: 'html'
+    },
+    alignment: {
+      type: 'string'
+    }
   },
-  save: function save(props) {
-    return wp.element.createElement("p", {
+  edit: function edit(_ref) {
+    var className = _ref.className,
+        attributes = _ref.attributes,
+        setAttributes = _ref.setAttributes;
+    var content = attributes.content,
+        alignment = attributes.alignment;
+
+    var onChangeContent = function onChangeContent(content) {
+      setAttributes({
+        content: content
+      });
+    };
+
+    var onChangeAlignment = function onChangeAlignment(alignment) {
+      setAttributes({
+        alignment: alignment
+      });
+    };
+
+    return wp.element.createElement(wp.element.Fragment, null, wp.element.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__["BlockControls"], {
+      controls: [{
+        icon: 'wordpress',
+        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('test', 'my-block'),
+        onClick: function onClick() {
+          return onChangeAlignment('right');
+        },
+        isActive: false
+      }, {
+        icon: 'wordpress',
+        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('test', 'my-block'),
+        onClick: function onClick() {
+          return alert(true);
+        },
+        isActive: false
+      }],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 42
       },
       __self: this
-    }, "Saved second content");
+    }, wp.element.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__["AlignmentToolbar"], {
+      value: alignment,
+      onChange: onChangeAlignment,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 57
+      },
+      __self: this
+    }), wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Toolbar"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60
+      },
+      __self: this
+    }, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["DropdownMenu"], {
+      icon: "editor-table",
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('test', 'my-block'),
+      controls: [{
+        icon: 'wordpress',
+        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('test', 'my-block'),
+        onClick: function onClick() {
+          return alert(true);
+        },
+        isActive: false
+      }, {
+        icon: 'wordpress',
+        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('test', 'my-block'),
+        onClick: function onClick() {
+          return alert(true);
+        },
+        isActive: false
+      }],
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 61
+      },
+      __self: this
+    }))), wp.element.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
+      style: {
+        textAlign: alignment
+      },
+      tagName: "p",
+      className: className,
+      onChange: onChangeContent,
+      value: content,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 81
+      },
+      __self: this
+    }));
+  },
+  save: function save(_ref2) {
+    var attributes = _ref2.attributes;
+    var content = attributes.content,
+        alignment = attributes.alignment;
+    return wp.element.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
+      style: {
+        textAlign: alignment
+      },
+      tagName: "p",
+      value: content,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 92
+      },
+      __self: this
+    });
   }
 });
 
@@ -232,6 +335,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 module.exports = wp["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = wp["components"];
 
 /***/ }),
 

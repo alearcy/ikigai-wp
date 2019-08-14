@@ -1,7 +1,8 @@
 import './styles.editor.scss';
-import { registerBlockType } from '@wordpress/blocks';
-import { __ } from '@wordpress/i18n';
-import { RichText } from '@wordpress/editor';
+import {registerBlockType} from '@wordpress/blocks';
+import {__} from '@wordpress/i18n';
+import {RichText, BlockControls, AlignmentToolbar} from '@wordpress/editor';
+import {Toolbar, DropdownMenu} from '@wordpress/components';
 
 registerBlockType("my-block/secondblock", {
     title: __("Second block", "my-block"),
@@ -17,11 +18,80 @@ registerBlockType("my-block/secondblock", {
             </svg>
     },
     keywords: [__('photo', 'my-block'), __('image', 'my-block')],
-    edit: ({className}) => {
-        return <RichText />
-        // return <p className={className}>Second pippo Editor</p>;
+    attributes: {
+        content: {
+            type: 'string',
+            selector: 'p',
+            source: 'html'
+        },
+        alignment: {
+            type: 'string',
+
+        }
     },
-    save: props => {
-        return <p>Saved second content</p>;
+    edit: ({className, attributes, setAttributes}) => {
+        const {content, alignment} = attributes;
+        const onChangeContent = content => {
+            setAttributes({content})
+        };
+        const onChangeAlignment = alignment => {
+            setAttributes({alignment})
+        };
+        return (
+            <>
+                <BlockControls
+                    controls={[
+                        {
+                            icon: 'wordpress',
+                            title: __('test', 'my-block'),
+                            onClick: () => onChangeAlignment('right'),
+                            isActive: false
+                        },
+                        {
+                            icon: 'wordpress',
+                            title: __('test', 'my-block'),
+                            onClick: () => alert(true),
+                            isActive: false
+                        }
+                    ]}>
+                    <AlignmentToolbar
+                        value={alignment}
+                        onChange={onChangeAlignment}/>
+                    <Toolbar>
+                        <DropdownMenu
+                            icon="editor-table"
+                            label={__('test', 'my-block')}
+                            controls={[
+                                {
+                                    icon: 'wordpress',
+                                    title: __('test', 'my-block'),
+                                    onClick: () => alert(true),
+                                    isActive: false
+                                },
+                                {
+                                    icon: 'wordpress',
+                                    title: __('test', 'my-block'),
+                                    onClick: () => alert(true),
+                                    isActive: false
+                                }
+                            ]}
+                        />
+                    </Toolbar>
+                </BlockControls>
+                <RichText
+                    style={{textAlign: alignment}}
+                    tagName="p"
+                    className={className}
+                    onChange={onChangeContent}
+                    value={content}/>
+            </>
+        )
+    },
+    save: ({attributes}) => {
+        const {content, alignment} = attributes;
+        return <RichText.Content
+            style={{textAlign: alignment}}
+            tagName="p"
+            value={content}/>
     }
 });
