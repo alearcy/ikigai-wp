@@ -1,16 +1,17 @@
 /*Block editor palette colors*/
+
 .has-primary-background-color {
-    @apply bg-primary;
+  background-color: #162E47;
 }
 
 .has-primary-color {
-    @apply text-primary;
+  color: #162E47;
 }
 
 .has-light-background-color {
-    @apply bg-light;
+ background-color: #E3DEEB;
 }
 
 .has-light-color {
-    @apply text-light;
+  color: #E3DEEB;
 }
