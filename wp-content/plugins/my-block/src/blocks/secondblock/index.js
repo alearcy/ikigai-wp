@@ -1,9 +1,40 @@
 import './styles.editor.scss';
-import {registerBlockType} from '@wordpress/blocks';
+import {registerBlockType, createBlock} from '@wordpress/blocks';
 import {__} from '@wordpress/i18n';
-import { RichText, getColorClassName } from '@wordpress/editor';
+import {RichText, getColorClassName} from '@wordpress/editor';
 import Edit from "./edit";
 import classnames from 'classnames';
+
+const attributes = {
+    content: {
+        type: 'string',
+        selector: 'div',
+        source: 'html'
+    },
+    textAlignment: {
+        type: 'string',
+    },
+    backgroundColor: {
+        type: 'string'
+    },
+    textColor: {
+        type: 'string'
+    },
+    customBackgroundColor: {
+        type: 'string'
+    },
+    customTextColor: {
+        type: 'string'
+    },
+    shadow: {
+        type: 'boolean',
+        default: false
+    },
+    shadowOpacity: {
+        type: 'number',
+        default: .3
+    }
+};
 
 registerBlockType("my-block/secondblock", {
     title: __("Second block", "my-block"),
@@ -34,45 +65,65 @@ registerBlockType("my-block/secondblock", {
             label: __('Squared', 'my-block'),
         },
     ],
-    attributes: {
-        content: {
-            type: 'string',
-            selector: 'p',
-            source: 'html'
-        },
-        alignment: {
-            type: 'string',
-        },
-        backgroundColor: {
-            type: 'string'
-        },
-        textColor: {
-            type: 'string'
-        },
-        customBackgroundColor: {
-            type: 'string'
-        },
-        customTextColor: {
-            type: 'string'
-        },
+    attributes,
+    transforms: {
+      from: [
+          {
+              // transform a paragraph block into my block
+              type: 'block',
+              blocks: ['core/paragraph'],
+              transform: ({content, align}) => {
+                return createBlock('my-block/secondblock', {
+                    content: content,
+                    textAlignment: align
+                })
+              }
+          },
+          {
+              // a shortcut to create my block
+              type: 'prefix',
+              prefix: '#',
+              transform: () => {
+                  return createBlock('my-block/secondblock')
+              }
+          },
+      ],
+      to: [
+          {
+              // transform our block in a paragraph
+              type: 'block',
+              blocks: ['core/paragraph'],
+              isMatch: ({ content }) => {
+                  return !!content;
+              },
+              transform: ({content, textAlignment}) => {
+                  return createBlock('core/paragraph', {
+                      content: content,
+                      align: textAlignment
+                  })
+              }
+          }
+      ]
     },
     edit: Edit,
     save: ({attributes}) => {
-        const {content, alignment, customBackgroundColor, customTextColor, backgroundColor, textColor} = attributes;
+        const {content, textAlignment, customBackgroundColor, customTextColor, backgroundColor, textColor, shadow, shadowOpacity} = attributes;
         const backgroundClass = getColorClassName('background-color', backgroundColor);
         const textClass = getColorClassName('color', textColor);
         const classes = classnames({
             [backgroundClass]: backgroundClass,
             [textClass]: textClass,
+            'has-shadow': shadow,
+            [`shadow-opacity-${shadowOpacity * 100}`]: shadowOpacity
         });
         return <RichText.Content
             className={classes}
             style={{
-                textAlign: alignment,
+                textAlign: textAlignment,
                 backgroundColor: backgroundClass ? undefined : customBackgroundColor,
                 color: textClass ? undefined : customTextColor
             }}
-            tagName="p"
+            tagName="div"
             value={content}/>
     }
 });

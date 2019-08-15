@@ -4,22 +4,44 @@ import {
 import {__} from "@wordpress/i18n";
 import {DropdownMenu, Toolbar} from "@wordpress/components";
 import {Component} from '@wordpress/element';
+import {RangeControl, PanelBody} from '@wordpress/components';
+import classnames from 'classnames';
 
 class Edit extends Component {
     onChangeContent = content => {
         this.props.setAttributes({content});
     };
-    onChangeAlignment = alignment => {
-        this.props.setAttributes({alignment});
+    onChangeAlignment = textAlignment => {
+        this.props.setAttributes({textAlignment});
+    };
+    toggleShadow = () => {
+        this.props.setAttributes({shadow: !this.props.attributes.shadow})
+    };
+
+    onChangeShadowOpacity = shadowOpacity => {
+        this.props.setAttributes({shadowOpacity})
     };
 
     render() {
         const {className, attributes, setTextColor, setBackgroundColor, backgroundColor, textColor} = this.props;
-        const {content, alignment} = attributes;
-        console.log(this.props)
+        const {content, textAlignment, shadow, shadowOpacity} = attributes;
+        const classes = classnames(className, {
+            'has-shadow': shadow,
+            [`shadow-opacity-${shadowOpacity * 100}`]: shadowOpacity
+        });
         return (
             <>
                 <InspectorControls>
+                    <PanelBody title={__('Settings', 'my-block')}>
+                        {shadow && <RangeControl
+                            label={__('Shadow opacity', 'my-block')}
+                            value={shadowOpacity}
+                            onChange={this.onChangeShadowOpacity}
+                            min={0.1}
+                            max={0.4}
+                            step={0.1}/>}
+
+                    </PanelBody>
                     <PanelColorSettings
                         title={__('Panel', 'my-block')}
                         colorSettings={[
@@ -43,21 +65,15 @@ class Edit extends Component {
                 <BlockControls
                     controls={[
                         {
-                            icon: "wordpress",
-                            title: __("test", "my-block"),
-                            onClick: () => this.onChangeAlignment("right"),
-                            isActive: false
+                            icon: "cloud",
+                            title: __("Shadow", "my-block"),
+                            onClick: () => this.toggleShadow(),
+                            isActive: shadow
                         },
-                        {
-                            icon: "wordpress",
-                            title: __("test", "my-block"),
-                            onClick: () => alert(true),
-                            isActive: false
-                        }
                     ]}
                 >
                     <AlignmentToolbar
-                        value={alignment}
+                        value={textAlignment}
                         onChange={this.onChangeAlignment}
                     />
                     <Toolbar>
@@ -83,12 +99,12 @@ class Edit extends Component {
                 </BlockControls>
                 <RichText
                     style={{
-                        textAlign: alignment,
+                        textAlign: textAlignment,
                         backgroundColor: backgroundColor.color,
                         color: textColor.color
                     }}
-                    tagName="p"
-                    className={className}
+                    tagName="div"
+                    className={classes}
                     onChange={this.onChangeContent}
                     value={content}
                 />

@@ -46,7 +46,7 @@ function myblock_blocks_register() {
     wp_register_script(
         'my-block-editor-script',
         plugins_url('dist/editor.js', __FILE__),
-        array('wp-blocks', 'wp-i18n', 'wp-editor', 'wp-components')
+        array('wp-blocks', 'wp-i18n', 'wp-editor', 'wp-components', 'wp-blob', 'lodash')
     );
 
     wp_register_script(
@@ -68,6 +68,8 @@ function myblock_blocks_register() {
 
     custom_register_block_type('firstblock');
     custom_register_block_type('secondblock');
+    custom_register_block_type('team-member');
+    custom_register_block_type('team-members');
 }
 
 add_action('init', 'myblock_blocks_register');

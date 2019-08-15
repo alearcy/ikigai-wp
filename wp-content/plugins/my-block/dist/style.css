@@ -6,6 +6,45 @@
   .wp-block-my-block-secondblock.is-style-outline {
     border-radius: 0;
     border: 2px solid currentColor; }
+  .wp-block-my-block-secondblock.has-shadow {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); }
+    .wp-block-my-block-secondblock.has-shadow.shadow-opacity-10 {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); }
+    .wp-block-my-block-secondblock.has-shadow.shadow-opacity-20 {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+    .wp-block-my-block-secondblock.has-shadow.shadow-opacity-30 {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); }
+    .wp-block-my-block-secondblock.has-shadow.shadow-opacity-40 {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
+
+.wp-block-my-block-team-members {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px; }
+  .wp-block-my-block-team-members.has-1-columns .wp-block-my-block-team-member {
+    width: calc(100%/1 - 20px); }
+  .wp-block-my-block-team-members.has-2-columns .wp-block-my-block-team-member {
+    width: calc(100%/2 - 20px); }
+  .wp-block-my-block-team-members.has-3-columns .wp-block-my-block-team-member {
+    width: calc(100%/3 - 20px); }
+  .wp-block-my-block-team-members.has-4-columns .wp-block-my-block-team-member {
+    width: calc(100%/4 - 20px); }
+  .wp-block-my-block-team-members.has-5-columns .wp-block-my-block-team-member {
+    width: calc(100%/5 - 20px); }
+  .wp-block-my-block-team-members.has-6-columns .wp-block-my-block-team-member {
+    width: calc(100%/6 - 20px); }
+  .wp-block-my-block-team-members .wp-block-my-block-team-member {
+    margin: 10px; }
+    .wp-block-my-block-team-members .wp-block-my-block-team-member__title {
+      color: #222;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 0; }
+    .wp-block-my-block-team-members .wp-block-my-block-team-member__info {
+      color: #565656;
+      font-weight: 300;
+      margin-top: 5px; }
 
 
 /*# sourceMappingURL=style.css.map*/
