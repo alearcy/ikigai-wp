@@ -2,11 +2,13 @@ const {src, dest, watch, parallel, series} = require("gulp");
 const postcss = require("gulp-postcss");
 const browserSync = require("browser-sync").create();
 const cssnano = require('gulp-cssnano');
+const sass = require('gulp-sass');
 
-function css() {
+function styles() {
     return src([
-        'styles/style.css',
+        'sass/style.scss', 'sass/woocommerce.scss',
     ])
+        .pipe(sass().on('error', sass.logError))
         .pipe(
             postcss([
                 require("autoprefixer")
@@ -26,14 +28,14 @@ function serve() {
 }
 
 function build() {
-    return src('style.css')
+    return src(['style.css', 'woocommerce.css'])
         .pipe(cssnano())
-        .pipe(dest('style.min.css'));
+        .pipe(dest('./'));
 }
 
 function watcher() {
-    watch('styles/*.css', css)
+    watch('sass/**/*.scss', styles)
 }
 
-exports.default = series(css, parallel(watcher, serve));
+exports.default = series(styles, parallel(watcher, serve));
 exports.build = build;
