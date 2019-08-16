@@ -21,9 +21,6 @@ function styles() {
 function serve() {
     browserSync.init({
         proxy: "localhost:8000",
-        ui: {
-            port: "8000",
-        }
     });
 }
 
