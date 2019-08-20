@@ -104,3 +104,27 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+@import "layout/layout";
+
+
+// General
+
+$debug: false;
+
+body, html {
+  height: 100vh;
+}
+
+body {
+  position: relative;
+}
+
+@if ($debug) {
+  * {
+    border: 1px solid black;
+  }
+}

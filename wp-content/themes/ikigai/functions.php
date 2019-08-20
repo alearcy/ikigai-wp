@@ -44,7 +44,7 @@ if ( ! function_exists( 'ikigai_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'ikigai' ),
+			'primary' => esc_html__( 'Primary', 'ikigai' ),
 		) );
 
 		/*
@@ -79,6 +79,13 @@ if ( ! function_exists( 'ikigai_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+        add_theme_support( 'custom-mobile', array(
+            'height'      => 250,
+            'width'       => 250,
+            'flex-width'  => true,
+            'flex-height' => true,
+        ) );
 
         /**
          * new Gutenberg block alignment

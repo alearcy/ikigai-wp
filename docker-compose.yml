@@ -35,15 +35,22 @@ services:
     image: wordpress:latest
     ports:
       - '8000:80'
+      - '443:443'
     restart: always
-    volumes: 
-      - ./wp-content:/var/www/html/wp-content
+    volumes:
+      - ./:/var/www/html/
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: password
     networks:
       - wpsite
+  wp-cli:
+    image: wordpress:cli
+    volumes:
+      - ./:/var/www/html/
+    links:
+      - db:db
 networks:
   wpsite:
 volumes:

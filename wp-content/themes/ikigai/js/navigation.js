@@ -74,6 +74,17 @@
 	}
 
 	/**
+	 * Toggles hamburger animations
+	 */
+	const icons = document.querySelectorAll('.nav-icon');
+	icons.forEach (icon => {
+		icon.addEventListener('click', (event) => {
+			icon.classList.toggle("open");
+		});
+	});
+
+
+	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
 	( function( container ) {
