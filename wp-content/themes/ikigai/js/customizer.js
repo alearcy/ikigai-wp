@@ -20,6 +20,16 @@
 		} );
 	} );
 
+	wp.customize( 'toggle', function( value ) {
+		value.bind( function( to ) {
+			if (to) {
+				$( '.site' ).addClass( 'dev-mode' );
+			} else {
+				$( '.site' ).removeClass( 'dev-mode' );
+			}
+		} );
+	} );
+
 	// Header text color.
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {

@@ -1,0 +1,38 @@
+.page-layout-landing {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas:
+          "main main main main";
+}
+
+.page-layout-blog-dx {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas:
+          "main main main main"
+          "aside aside aside aside";
+  @media (min-width: 600px) {
+    grid-template-areas:
+            "main main main aside";
+  }
+}
+
+.page-layout-blog-sx {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas:
+          "main main main main"
+          "aside aside aside aside";
+  @media (min-width: 600px) {
+    grid-template-areas:
+            "aside main main main";
+  }
+}
+
+aside {
+  grid-area: aside;
+}
+
+.site-main {
+  grid-area: main;
+}

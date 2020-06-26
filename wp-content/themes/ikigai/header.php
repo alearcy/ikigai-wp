@@ -13,43 +13,35 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-
-    <?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'ikigai'); ?></a>
-
-    <header id="masthead" class="site-header">
-        <div class="container">
+<?php wp_body_open(); ?>
+<div id="page" class="site <?php if ( get_theme_mod( 'toggle' ) ) : ?> dev-mode<?php endif; ?>">
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ikigai' ); ?></a>
+    <header id="masthead" class="site-header fixed">
+        <div class="container centered">
             <div class="header-content">
                 <div class="site-branding">
-                    <?php if (get_theme_mod( 'mobile_logo' )) : ?>
-                    <div class="mobile-logo">
-                        <img src="<?php echo get_theme_mod( 'mobile_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" >
-                    </div>
-                    <?php endif; ?>
-                    <?php
-                    the_custom_logo();
-                    if (is_front_page() && is_home()) :
-                        ?>
-                        <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-                                                  rel="home"><?php bloginfo('name'); ?></a></h1>
-                    <?php
-                    else :
-                        ?>
-                        <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-                                                 rel="home"><?php bloginfo('name'); ?></a></p>
-                    <?php
-                    endif;
-                    $ikigai_description = get_bloginfo('description', 'display');
-                    if ($ikigai_description || is_customize_preview()) :
-                        ?>
-                        <p class="site-description"><?php echo $ikigai_description; /* WPCS: xss ok. */ ?></p>
+					<?php if ( get_theme_mod( 'mobile_logo' ) ) : ?>
+                        <div class="mobile-logo">
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                                <img src="<?php echo get_theme_mod( 'mobile_logo' ); ?>" alt="Logo">
+                            </a>
+                        </div>
+					<?php endif; ?>
+                    <?php if (get_custom_logo()) : ?>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                            <?php the_custom_logo(); ?>
+                        </a>
+                    <?php else: ?>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                            <img class="logo-placeholder" src="<?php bloginfo('template_url');?>/images/logo.png" alt="Logo">
+                        </a>
                     <?php endif; ?>
                 </div><!-- .site-branding -->
                 <nav id="site-navigation" class="main-navigation">
@@ -66,17 +58,14 @@
                             <span></span>
                         </div>
                     </button>
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'primary',
-                        'menu_id' => 'primary-menu',
-                    ));
-                    ?>
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'menu_id'        => 'primary-menu',
+					) );
+					?>
                 </nav><!-- #site-navigation -->
             </div>
         </div>
-
-
     </header><!-- #masthead -->
-
     <div id="content" class="site-content">

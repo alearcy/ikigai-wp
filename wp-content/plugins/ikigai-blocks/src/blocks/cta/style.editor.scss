@@ -1,0 +1,28 @@
+.wp-block-ikigai-blocks-team-members {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  @for $i from 1 through 6 {
+    &.has-#{$i}-columns {
+      [data-type="ikigai-blocks/team-member"] {
+        width: calc(100%/#{$i});
+      }
+    }
+  }
+  > .editor-inner-blocks > .editor-block-list__layout {
+    display: flex;
+    flex-wrap: wrap;
+    .block-list-appender {
+      width: 100%;
+    }
+    > [data-type="ikigai-blocks/team-member"] {
+      max-width: none;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+  .wp-block-ikigai-blocks-team-member {
+    margin: 0;
+    width: auto !important;
+  }
+}

@@ -1,0 +1,11 @@
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+.editor-styles-wrapper figure {
+  margin: 0;
+}

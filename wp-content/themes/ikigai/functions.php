@@ -90,23 +90,7 @@ if ( ! function_exists( 'ikigai_setup' ) ) :
         /**
          * new Gutenberg block alignment
          */
-        add_theme_support( 'align-wide' );
-
-        /**
-         * Color palette in block editor
-         */
-        add_theme_support( 'editor-color-palette', array(
-            array(
-                'name' => __('Primary color', 'ikigai'),
-                'slug' => 'primary',
-                'color' => '#162E47'
-            ),
-            array(
-                'name' => __('Light color', 'ikigai'),
-                'slug' => 'light',
-                'color' => '#E3DEEB'
-            )
-        ) );
+        add_theme_support( 'align-wide', 'align-full' );
 
         /**
          * Responsive embed block like YouTube videos etc...
@@ -160,6 +144,8 @@ function ikigai_scripts() {
 	wp_enqueue_script( 'ikigai-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'ikigai-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'ikigai-custom-script', get_template_directory_uri() . '/js/custom.js', array(), false, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

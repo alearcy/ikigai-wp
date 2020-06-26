@@ -112,19 +112,115 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 // General
-
-$debug: false;
-
 body, html {
-  height: 100vh;
+  height: 100%;
 }
 
-body {
-  position: relative;
-}
-
-@if ($debug) {
-  * {
-    border: 1px solid black;
+// Dev mode
+.site {
+  &.dev-mode {
+    main {
+      background-color: #8ed1fc;
+    }
+    aside {
+      background-color: #8e9b49;
+    }
+    footer {
+      background-color: #98783e;
+    }
+    header {
+      background-color: #b94a48;
+    }
+    article {
+      background-color: #e6db55;
+    }
   }
+}
+
+// CUSTOMIZATION
+
+.above-the-fold {
+  h1 {
+    color: white;
+    font-size: 3rem;
+  }
+}
+
+.team-section {
+  h2 {
+    font-weight: bold;
+  }
+}
+
+.desc-section {
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  height: auto !important;
+  @media (min-width: $desktop) {
+    background-color: $color__primary;
+    height: 100vh !important;
+  }
+  .section-content {
+    align-items: center;
+    p {
+      font-size: 2rem;
+      width: 100%;
+      text-align: center;
+      &.yours {
+        margin-top: -45px;
+        text-transform: uppercase;
+        color: $color__primary;
+      }
+    }
+    @media (min-width: $desktop) {
+      align-items: flex-end;
+      p {
+        font-size: 2rem;
+        width: 40%;
+        text-align: left;
+        &.yours {
+          margin-top: -45px;
+          text-transform: uppercase;
+          color: $color__primary;
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+  @media (min-width: $desktop) {
+    &:before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      pointer-events: none;
+      position: absolute;
+      right: -47%;
+      top: 0;
+      bottom: 0;
+      background-color: white;
+      z-index: -1;
+      transform: skew(-29deg);
+    }
+  }
+}
+
+.under-construction {
+  height: auto !important;
+  background-color: $color__text-main;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  @media (min-width: $desktop) {
+    height: 100vh !important;
+  }
+}
+
+footer.site-footer {
+  height: 100%;
+  width: 100%;
+  background-color: $color__text-main;
+  position: relative;
+  color: white;
+  text-align: center;
 }

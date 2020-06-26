@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Dosis:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
-$font__main: 'Dosis', sans-serif;
-$font__code: 'Dosis', Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__main: 'Quicksand', sans-serif;
+$font__heading: 'Roboto', serif;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;

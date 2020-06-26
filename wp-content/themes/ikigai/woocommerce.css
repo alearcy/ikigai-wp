@@ -4,13 +4,10 @@ Theme Name: ikigai
 WooCommerce styles override
 */
 /**
- * WooCommerce color variables
- */
-/**
  * Imports
  */
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Dosis:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 /**
  * Shop tables
  */
@@ -76,27 +73,13 @@ ul.products {
       display: block; }
 
 @media screen and (min-width: 48em) {
-  ul.products li.product {
-    width: 30.79667%;
-    float: left;
-    margin-right: 3.8%; }
-    ul.products li.product.first {
-      clear: both; }
-    ul.products li.product.last {
-      margin-right: 0; }
+  ul.products li.product.first {
+    clear: both; }
+  ul.products li.product.last {
+    margin-right: 0; }
   .columns-1 ul.products li.product {
     float: none;
-    width: 100%; }
-  .columns-2 ul.products li.product {
-    width: 48.1%; }
-  .columns-3 ul.products li.product {
-    width: 30.79667%; }
-  .columns-4 ul.products li.product {
-    width: 22.15%; }
-  .columns-5 ul.products li.product {
-    width: 16.96%; }
-  .columns-6 ul.products li.product {
-    width: 13.49333%; } }
+    width: 100%; } }
 
 /**
  * Single product
@@ -135,30 +118,6 @@ ul.products {
             opacity: 1; }
         .single-product div.product .woocommerce-product-gallery .flex-control-thumbs li:hover img {
           opacity: 1; }
-    .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-2 .flex-control-thumbs li {
-      width: 48.1%; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-2 .flex-control-thumbs li:nth-child(2n) {
-        margin-right: 0; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-2 .flex-control-thumbs li:nth-child(2n+1) {
-        clear: both; }
-    .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-3 .flex-control-thumbs li {
-      width: 30.79667%; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-3 .flex-control-thumbs li:nth-child(3n) {
-        margin-right: 0; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-3 .flex-control-thumbs li:nth-child(3n+1) {
-        clear: both; }
-    .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
-      width: 22.15%; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li:nth-child(4n) {
-        margin-right: 0; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li:nth-child(4n+1) {
-        clear: both; }
-    .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-5 .flex-control-thumbs li {
-      width: 16.96%; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-5 .flex-control-thumbs li:nth-child(5n) {
-        margin-right: 0; }
-      .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-5 .flex-control-thumbs li:nth-child(5n+1) {
-        clear: both; }
 
 .stock:empty:before {
   display: none; }
@@ -175,17 +134,6 @@ ul.products {
 /**
  * Checkout
  */
-@media screen and (min-width: 768px) {
-  .col2-set .form-row-first {
-    float: left;
-    margin-right: 3.8%; }
-  .col2-set .form-row-last {
-    float: right;
-    margin-right: 0; }
-  .col2-set .form-row-first,
-  .col2-set .form-row-last {
-    width: 48.1%; } }
-
 /**
  * General WooCommerce components
  */
@@ -238,7 +186,7 @@ ul.products {
     top: 0;
     position: absolute;
     left: 0;
-    color: royalblue; }
+    color: blue; }
 
 p.stars a {
   position: relative;
@@ -269,12 +217,12 @@ p.stars a {
 
 p.stars:hover a:before {
   content: "\53";
-  color: royalblue;
+  color: blue;
   opacity: 1; }
 
 p.stars.selected a.active:before {
   content: "\53";
-  color: royalblue;
+  color: blue;
   opacity: 1; }
 
 p.stars.selected a.active ~ a:before {
@@ -284,7 +232,7 @@ p.stars.selected a.active ~ a:before {
 
 p.stars.selected a:not(.active):before {
   content: "\53";
-  color: royalblue;
+  color: blue;
   opacity: 1; }
 
 /**
@@ -406,7 +354,7 @@ p.no-comments {
   height: 1em;
   cursor: ew-resize;
   outline: none;
-  background: royalblue;
+  background: blue;
   box-sizing: border-box;
   margin-top: -.25em;
   opacity: 1; }
@@ -420,7 +368,7 @@ p.no-comments {
   z-index: 1;
   display: block;
   border: 0;
-  background: royalblue; }
+  background: blue; }
 
 .widget_price_filter .price_slider_wrapper .ui-widget-content {
   background: rgba(0, 0, 0, 0.1); }

@@ -1,0 +1,72 @@
+.wp-block-ikigai-blocks-team-member {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 4px 8px 37px -18px grey; }
+  .wp-block-ikigai-blocks-team-member > p, .wp-block-ikigai-blocks-team-member > div, .wp-block-ikigai-blocks-team-member h3 {
+    padding: 0 1rem; }
+
+.ikigai-section-wrapper {
+  position: relative;
+  z-index: 0;
+  background-color: white;
+  overflow: hidden; }
+  .ikigai-section-wrapper .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
+
+#video {
+  top: 0;
+  right: 0;
+  z-index: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%; }
+  #video.fixed {
+    position: fixed; }
+  #video.absolute {
+    position: absolute; }
+
+.ikigai-container {
+  display: flex;
+  height: 100%;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  width: 100%; }
+  .ikigai-container.centered {
+    max-width: 1200px;
+    margin: 0 auto; }
+  .ikigai-container.top-left {
+    justify-content: flex-start;
+    align-items: flex-start; }
+  .ikigai-container.top-right {
+    justify-content: flex-end;
+    align-items: flex-start; }
+  .ikigai-container.top-center {
+    justify-content: center;
+    align-items: flex-start; }
+  .ikigai-container.middle-left {
+    justify-content: flex-start;
+    align-items: center; }
+  .ikigai-container.middle-right {
+    justify-content: flex-end;
+    align-items: center; }
+  .ikigai-container.middle-center {
+    justify-content: center;
+    align-items: center; }
+  .ikigai-container.bottom-left {
+    justify-content: flex-start;
+    align-items: flex-end; }
+  .ikigai-container.bottom-right {
+    justify-content: flex-end;
+    align-items: flex-end; }
+  .ikigai-container.bottom-center {
+    justify-content: center;
+    align-items: flex-end; }
+
+
+/*# sourceMappingURL=style.css.map*/

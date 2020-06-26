@@ -1,0 +1,15 @@
+.wp-block-ikigai-blocks-team-member {
+  margin: 10px;
+  &__title {
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  &__info, &__occupation {
+    color: #565656;
+    font-weight: 300;
+    margin-top: 5px;
+  }
+}
